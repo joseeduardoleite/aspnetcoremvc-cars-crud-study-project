@@ -1,0 +1,23 @@
+@using System.Globalization;
+@model IEnumerable<CarWebMVC.Models.Carro>
+
+@{
+    ViewData["Title"] = "Lista";
+}
+<div class="sidebar">
+    <a class="btn btn-success btn-xs" href="/Carros/CadastrarCarro" style="padding: 10px; font-size: medium; float: right">Cadastrar carro</a>
+</div>
+
+<h2>Listagem dos carros</h2>
+
+@foreach (var carro in Model)
+{
+    <br>
+    <p><strong>Marca: </strong>@carro.Marca</p>
+    <p><strong>Modelo: </strong>@carro.Modelo</p>
+    <p><strong>Cor: </strong>@carro.Cor</p>
+    <p><strong>Placa: </strong>@carro.Placa</p>
+    <p><strong>Preco: </strong>R$ @carro.Preco.ToString("F2", CultureInfo.InvariantCulture)</p>
+    <a href="/Carros/EditarCarro/@carro.Id" class="btn btn-dark">Editar</a>
+    <a href="/Carros/DeletarCarro/@carro.Id" class="btn btn-danger">Deletar</a><br>
+}

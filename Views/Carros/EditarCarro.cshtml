@@ -1,0 +1,17 @@
+@model CarWebMVC.Models.Carro
+@{
+    ViewData["Title"] = "Cadastrar";
+}
+
+<h2>Cadastro de carros</h2><br/>
+
+<form class="form-horizontal w-50 p-0" asp-area="" asp-controller="Carros" asp-action="SalvarCarro" method="POST">
+    <input type="hidden" asp-for="Id">
+    <input type="text" class="form-control" asp-for="Marca" placeholder="Marca"><br/>
+    <input type="text" class="form-control" asp-for="Modelo" placeholder="Modelo"><br/>
+    <input type="text" class="form-control" asp-for="Cor" placeholder="Cor"><br/>
+    <input type="text" class="form-control" asp-for="Placa" placeholder="Placa"><br/>
+    <input type="number" class="form-control" asp-for="Preco" placeholder="Preço"><br/>
+    <button class="btn btn-success text-white">Atualizar carro</button>
+    @Html.ActionLink("Cancelar","Index","Carros",null,new { @class = "btn btn-dark"})
+</form>
